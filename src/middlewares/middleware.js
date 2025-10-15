@@ -31,6 +31,7 @@ export default {
   },
 
   loginRequired: (req, res, next) => {
+    console.log("req.session.user", req.session.user);
     if (!req.session.user) {
       req.flash("errors", "Você precisa fazer login.");
       req.session.save(() => res.redirect("/login"));
