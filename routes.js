@@ -7,11 +7,15 @@ import homeController from "./src/controllers/homeController.js"; // Importa o c
 import loginController from "./src/controllers/loginController.js"; // Importa o controlador de login.
 import registerController from "./src/controllers/registerController.js"; // Importa o controlador de registro.
 import contactController from "./src/controllers/contactController.js"; // Importa o controlador de contatos.
+import agendaController from "./src/controllers/agendaController.js"; // Importa o controlador da agenda.
 import middleware from "./src/middlewares/middleware.js";
 
 const route = express.Router(); // Cria uma nova instância do roteador do Express para definir as rotas.
 
-route.get("/", homeController.index); // Define a rota principal (GET /) para ser tratada pelo método 'index' do 'homeController'.
+route.get("/", homeController.index);
+
+// Rota da agenda
+route.get("/agenda", middleware.loginRequired, agendaController.index);
 
 // Rotas de registro
 route.get("/register", registerController.index); // Define a rota GET /register para exibir a página de registro, tratada pelo método 'index' do 'registerController'.

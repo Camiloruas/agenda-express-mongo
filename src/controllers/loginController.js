@@ -28,7 +28,7 @@ export default {
       req.session.user = login.user; // Armazena os dados do usuário na sessão, mantendo-o conectado.
       req.session.save(() => {
         // Salva a sessão antes de redirecionar.
-        return res.redirect("/"); // Redireciona o usuário para a página inicial.
+        return res.redirect("/agenda"); // Redireciona o usuário para a página da agenda.
       });
     } catch (e) {
       // Captura qualquer erro inesperado.
