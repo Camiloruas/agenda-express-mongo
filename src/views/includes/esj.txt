@@ -1,0 +1,28 @@
+============================================================
+GUIA RÁPIDO DE TAGS EJS - USO E FINALIDADE
+============================================================
+
+1. SAÍDA DE VALOR (ESCAPADO) - O MAIS SEGURO:
+   - FINALIDADE: Imprime o valor na tela, escapando caracteres HTML (< é transformado em &lt;).
+   - ESTRUTURA: <%= ... %>
+   - EXEMPLO: <%= nomeUsuario %>
+
+2. SAÍDA DE VALOR (NÃO ESCAPADO):
+   - FINALIDADE: Imprime o valor na tela sem escapar o HTML. Use para conteúdo que é HTML puro.
+   - ESTRUTURA: <%- ... %>
+   - EXEMPLO: <%- htmlDaPostagem %>
+
+3. CONTROLE DE FLUXO (CÓDIGO JS):
+   - FINALIDADE: Executa código JavaScript (if, for, while, declarações) sem imprimir nada.
+   - ESTRUTURA: <% ... %>
+   - EXEMPLO: <% if (condicao) { %>
+
+4. COMENTÁRIO EJS:
+   - FINALIDADE: Comentário que é ignorado e não é enviado para o navegador (não aparece no HTML final).
+   - ESTRUTURA: <%# ... %>
+   - EXEMPLO: <%# Verificar se o usuário está logado antes de mostrar %>
+
+5. SAÍDA LITERAL (IMPRIME <%):
+   - FINALIDADE: Imprime a string literal "<%" no seu HTML (raramente usado).
+   - ESTRUTURA: <%% ... %>
+   - EXEMPLO: <%% O símbolo de abertura %>

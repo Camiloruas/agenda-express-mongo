@@ -1,0 +1,48 @@
+<%- include("includes/head.ejs") %> <%# aqui vai importar o cabeçalho %> 
+<%- include("includes/nav.ejs") %> <%# aqui vai importar o cabeçalho %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-2"></div>
+    <div class="col-lg-8 my-3">
+      <h1 class=" text-center">
+        <% if(contact._id) { %>
+          Editar contato
+        <% } else { %>
+          Criar Contato
+        <% } %>
+      </h1>
+      <p class="text-center lead">Crie ou edite um contato abaixo: </p>
+
+      <%- include('includes/messages') %>
+      
+      <% if(contact._id) { %>
+      <form action="/contact/edit/<%= contact._id %>" method="post">
+      <% } else { %>
+      <form action="/contact/create" method="post">
+      <% } %>
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+        <div class="mb-3">
+          <label for="name" class="form-label">Nome</label>
+          <input value="<%= contact.name %>" type="text" class="form-control" id="name" name="name">
+        </div>
+        <div class="mb-3">
+          <label for="lastname" class="form-label">Sobrenome</label>
+          <input value="<%= contact.lastname %>" type="text" class="form-control" id="lastname" name="lastname">
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">E-mail</label>
+          <input value="<%= contact.email %>" type="email" class="form-control" id="email" name="email">
+        </div>
+        <div class="mb-3">
+          <label for="phone" class="form-label">Telefone</label>
+          <input value="<%= contact.phone %>" type="tel" class="form-control" id="phone" name="phone">
+        </div>
+        <button type="submit" class="btn btn-primary">Salvar Contato</button>
+      </form>
+
+    </div>
+    <div class="col-lg-2"></div>
+  </div>
+</div>
+<%- include("includes/footer.ejs") %>

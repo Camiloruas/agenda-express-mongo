@@ -1,0 +1,41 @@
+<%- include("includes/head.ejs") %> <%# aqui vai importar o cabeçalho %> 
+<%- include("includes/nav.ejs") %> <%# aqui vai importar o cabeçalho %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-2"></div>
+    <div class="col-lg-8 my-3">
+      <h1 class=" text-center">Agenda</h1>
+      
+      <% if(user) { %>
+        <p class="text-center lead">Seus Contatos estão abaixo</p>
+      <% } else { %>
+        <p class="text-center lead">Faça login ou crie sua conta para ver seus contatos.</p>
+      <% } %>
+
+      <%- include('includes/messages') %>
+
+      <% if(contacts.length > 0) { %>
+        <div class="responsive-table">
+          <table class="table my-3">
+            <% contacts.forEach(contact => { %>
+            <tr>
+              <td><%= contact.name %></td>
+              <td><%= contact.lastname %></td>
+              <td><%= contact.phone %></td>
+              <td><%= contact.email %></td>
+              <td><a href="/contact/<%= contact._id %>">Editar</a></td>
+              <td><a class="text-danger" href="/contact/delete/<%= contact._id %>">Excluir</a></td>
+            </tr>
+            <% }); %>
+          </table>
+        </div>
+        <% } else { %>
+          <p class="text-center lead">Não existem contatos na sua agenda.</p>
+        <% } %>
+
+    </div>
+    <div class="col-lg-2"></div>
+  </div>
+</div>
+<%- include("includes/footer.ejs") %>

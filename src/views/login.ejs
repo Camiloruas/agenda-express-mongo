@@ -1,0 +1,54 @@
+<%- include("includes/head.ejs") %> <%# aqui vai importar o cabeçalho %> 
+<%- include("includes/nav.ejs") %> <%# aqui vai importar o cabeçalho %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-2"></div>
+    <div class="col-lg-8 my-3">
+      <h1 class=" text-center">Login</h1>
+      <p class="text-center lead">Faça login ou crie sua conta abaixo: </p>
+
+      <% if(errors.length > 0) { %>
+        <div class="row">
+          <div class="col my-3">
+            <div class="alert alert-danger">
+              <% errors.forEach(erro => { %>
+                <%= erro %><br>
+              <% }); %>
+            </div>
+          </div>
+        </div>
+      <% } %>
+
+      <% if(success.length > 0) { %>
+        <div class="row">
+          <div class="col my-3">
+            <div class="alert alert-success">
+              <% success.forEach(success => { %>
+                <%= success %><br>
+              <% }); %>
+            </div>
+          </div>
+        </div>
+      <% } %>
+
+      <p class="text-center">Não tem cadastro? <a href="/register">Criar uma Conta.</a></p>
+      
+      <form action="/login" method="post">
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+        <div class="mb-3">
+          <label for="email" class="form-label">Seu e-mail</label>
+          <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Sua senha</label>
+          <input type="password" class="form-control" id="password" name="password">
+        </div>
+        <button type="submit" class="btn btn-primary">Entrar</button>
+      </form>
+
+    </div>
+    <div class="col-lg-2"></div>
+  </div>
+</div>
+<%- include("includes/footer.ejs") %>
