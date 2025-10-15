@@ -17,17 +17,29 @@
 
       <% if(contacts.length > 0) { %>
         <div class="responsive-table">
-          <table class="table my-3">
+          <table class="table table-bordered custom-dark-border my-5">
+            <thead>
+              <tr>
+                <th>Nome</th>
+                <th>Sobrenome</th>
+                <th>Telefone</th>
+                <th>Email</th>
+                <th></th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
             <% contacts.forEach(contact => { %>
             <tr>
               <td><%= contact.name %></td>
               <td><%= contact.lastname %></td>
               <td><%= contact.phone %></td>
               <td><%= contact.email %></td>
-              <td><a href="/contact/<%= contact._id %>">Editar</a></td>
-              <td><a class="text-danger" href="/contact/delete/<%= contact._id %>">Excluir</a></td>
+              <td><a href="/contact/<%= contact._id %>" class="btn btn-info btn-sm">Editar</a></td>
+              <td><a class="btn btn-danger btn-sm" href="/contact/delete/<%= contact._id %>">Excluir</a></td>
             </tr>
             <% }); %>
+            </tbody>
           </table>
         </div>
         <% } else { %>

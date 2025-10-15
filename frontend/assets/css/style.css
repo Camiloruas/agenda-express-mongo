@@ -1,0 +1,4 @@
+.table-bordered.custom-dark-border th,
+.table-bordered.custom-dark-border td {
+  border-color: #6c757d; /* A darker shade of gray */
+}

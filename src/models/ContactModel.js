@@ -6,16 +6,18 @@ const ContactSchema = new mongoose.Schema({
   lastname: { type: String, required: false, default: '' },
   email: { type: String, required: false, default: '' },
   phone: { type: String, required: false, default: '' },
+  userId: { type: String, required: true },
   createdAt: { type: Date, default: Date.now },
 });
 
 const ContactModel = mongoose.model("Contact", ContactSchema);
 
 class Contact {
-  constructor(body) {
+  constructor(body, userId) {
     this.body = body;
     this.errors = [];
     this.contact = null;
+    this.userId = userId;
   }
 
   static async searchById(id) {
@@ -53,6 +55,7 @@ class Contact {
       lastname: this.body.lastname,
       email: this.body.email,
       phone: this.body.phone,
+      userId: this.userId,
     };
   }
 
@@ -64,8 +67,8 @@ class Contact {
   }
 }
 
-Contact.searchContacts = async function() {
-  const contacts = await ContactModel.find()
+Contact.searchContacts = async function(userId) {
+  const contacts = await ContactModel.find({ userId })
     .sort({ createdAt: -1 });
   return contacts;
 };

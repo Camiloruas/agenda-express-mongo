@@ -7,7 +7,7 @@ export default {
 
   create: async (req, res) => {
     try {
-      const contact = new Contact(req.body);
+      const contact = new Contact(req.body, req.session.user._id);
       await contact.create();
 
       if (contact.errors.length > 0) {
@@ -20,7 +20,7 @@ export default {
 
       req.flash("success", "Contato registrado com sucesso.");
       req.session.save(() => {
-        return res.redirect(`/contact/${contact.contact._id}`);
+        return res.redirect("/contact");
       });
     } catch (e) {
       console.log(e);
@@ -38,7 +38,7 @@ export default {
   edit: async (req, res) => {
     try {
       if (!req.params.id) return res.render("404");
-      const contact = new Contact(req.body);
+      const contact = new Contact(req.body, req.session.user._id);
       await contact.update(req.params.id);
 
       if (contact.errors.length > 0) {

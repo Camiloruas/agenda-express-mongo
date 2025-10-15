@@ -24,7 +24,7 @@ export default {
         return; // Interrompe a execução do método.
       }
 
-      req.flash("success", "Você entrou no sistema."); // Se o login for bem-sucedido, armazena uma mensagem de sucesso.
+      req.flash("success", "Você entrou na agenda."); // Se o login for bem-sucedido, armazena uma mensagem de sucesso.
       req.session.user = login.user; // Armazena os dados do usuário na sessão, mantendo-o conectado.
       req.session.save(() => {
         // Salva a sessão antes de redirecionar.
