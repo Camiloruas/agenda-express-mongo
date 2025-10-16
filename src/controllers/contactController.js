@@ -66,7 +66,7 @@ export default {
 
     req.flash("success", "Contato apagado com sucesso.");
     req.session.save(() => {
-      return res.redirect("/");
+      return res.redirect("/agenda");
     });
   },
 };
