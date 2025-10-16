@@ -24,7 +24,7 @@ export default { // Exporta um objeto com os métodos do controlador.
       });
     } catch (e) { // Captura qualquer erro inesperado que possa ocorrer.
       console.log(e); // Exibe o erro no console para fins de depuração.
-      return res.render("404"); // Renderiza uma página de erro 404.
+      return res.render("includes/404"); // Renderiza uma página de erro 404.
     }
   },
 };
