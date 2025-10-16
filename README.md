@@ -71,12 +71,13 @@ Siga as instruções abaixo para configurar e executar o projeto em seu ambiente
 
 ## Análise de Segurança
 
-Durante a análise do código, não foram encontradas brechas de segurança críticas. O projeto já implementa medidas de segurança importantes, como:
+Durante a análise do código, não encontrei brechas de segurança críticas. O projeto já conta com medidas importantes para proteger a aplicação, como:
 
-- **`helmet`:** Ajuda a proteger a aplicação de algumas vulnerabilidades web conhecidas, configurando cabeçalhos HTTP de segurança.
-- **`csurf`:** Protege contra ataques de Cross-Site Request Forgery (CSRF).
-- **`express-session`:** Gerencia as sessões dos usuários de forma segura.
-- **Senha com hash:** As senhas dos usuários são armazenadas com hash usando `bcryptjs`, o que impede que sejam lidas diretamente no banco de dados.
-- **Middleware de autenticação (`loginRequired`):** Protege as rotas que só devem ser acessadas por usuários logados.
+- **`helmet`:** ajuda a proteger contra algumas vulnerabilidades conhecidas na web, configurando cabeçalhos HTTP de segurança.
+- **`csurf`:** adiciona proteção contra ataques do tipo Cross-Site Request Forgery (CSRF).
+- **`express-session`:** gerencia as sessões dos usuários de forma segura.
+- **Senha com hash:** as senhas dos usuários são armazenadas com hash usando `bcryptjs`, impedindo que sejam lidas diretamente no banco de dados.
+- **Middleware de autenticação (`loginRequired`):** protege as rotas que só devem ser acessadas por usuários logados.
 
-No entanto, é sempre importante manter as dependências atualizadas para corrigir possíveis vulnerabilidades que possam ser descobertas no futuro. Você pode usar o comando `npm audit` para verificar se há vulnerabilidades conhecidas nas dependências do projeto.
+Mesmo com essas proteções, é importante manter as dependências sempre atualizadas para evitar vulnerabilidades futuras.  
+Uma boa prática é executar o comando `npm audit` regularmente para verificar se há falhas conhecidas nas dependências do projeto.
