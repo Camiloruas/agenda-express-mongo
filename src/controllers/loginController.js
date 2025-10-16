@@ -33,7 +33,7 @@ export default {
     } catch (e) {
       // Captura qualquer erro inesperado.
       console.log(e); // Exibe o erro no console.
-      return res.render("404"); // Renderiza uma página de erro 404.
+      return res.render("includes/404"); // Renderiza uma página de erro 404.
     }
   },
 

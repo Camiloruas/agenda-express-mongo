@@ -24,20 +24,20 @@ export default {
       });
     } catch (e) {
       console.log(e);
-      return res.render("404");
+      return res.render("includes/404");
     }
   },
 
   editIndex: async (req, res) => {
-    if (!req.params.id) return res.render("404");
+    if (!req.params.id) return res.render("includes/404");
     const contact = await Contact.searchById(req.params.id);
-    if (!contact) return res.render("404");
+    if (!contact) return res.render("includes/404");
     res.render("contact", { contact });
   },
 
   edit: async (req, res) => {
     try {
-      if (!req.params.id) return res.render("404");
+      if (!req.params.id) return res.render("includes/404");
       const contact = new Contact(req.body, req.session.user._id);
       await contact.update(req.params.id);
 
@@ -55,14 +55,14 @@ export default {
       });
     } catch (e) {
       console.log(e);
-      res.render("404");
+      res.render("includes/404");
     }
   },
 
   delete: async (req, res) => {
-    if (!req.params.id) return res.render("404");
+    if (!req.params.id) return res.render("includes/404");
     const contact = await Contact.delete(req.params.id);
-    if (!contact) return res.render("404");
+    if (!contact) return res.render("includes/404");
 
     req.flash("success", "Contato apagado com sucesso.");
     req.session.save(() => {
