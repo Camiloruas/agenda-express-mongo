@@ -58,13 +58,13 @@ const sessionOptions = session({ // Configura as opções para o middleware de s
 
 // Adicione o middleware de sessão, flash e o resto do setup do Express aqui (antes do app.on('pronto'))
 // (Isso garante que esses middlewares sejam configurados antes do servidor iniciar)
-app.use(helmet()); // Usa o middleware helmet para adicionar cabeçalhos de segurança.
+//app.use(helmet()); // Usa o middleware helmet para adicionar cabeçalhos de segurança. comentei pq está causando erro no app
 app.use(sessionOptions); // Usa o middleware de sessão com as opções configuradas.
 app.use(flash()); // Usa o middleware connect-flash para mensagens flash.
 app.use(csurf()); // Usa o middleware csurf para proteção contra CSRF.
 app.use(middleware.globalMiddleware);
 app.use(middleware.csrfMiddleware); // Usa o middleware personalizado para disponibilizar o token CSRF para as visualizações.
-app.use(middleware.checkCsurfError); // Usa o middleware para tratar erros de CSRF.
+//app.use(middleware.checkCsurfError); // Usa o middleware para tratar erros de CSRF.
 app.use(routes); // Usa as rotas definidas no arquivo routes.js.
 app.set("views", path.resolve(__dirname, "src", "views")); // Define o diretório onde as visualizações (arquivos .ejs) estão localizadas.
 app.set("view engine", "ejs"); // Define o motor de visualização como EJS.
