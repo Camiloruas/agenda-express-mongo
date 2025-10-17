@@ -16,6 +16,7 @@ import csurf from "csurf"; // Importa o csurf para proteção contra ataques CSR
 
 const port = 3000; // Define a porta em que o servidor será executado.
 const app = express(); // Cria uma instância do aplicativo Express.
+app.set('trust proxy', 1); // Adicionado para que o Express confie no proxy reverso (Nginx)
 dotenv.config(); // Carrega as variáveis de ambiente do arquivo .env.
 
 // Conecta ao MongoDB
