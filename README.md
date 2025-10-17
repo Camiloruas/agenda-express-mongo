@@ -6,9 +6,9 @@ Este é um projeto de uma agenda de contatos, onde você pode salvar, editar e a
 
 Você pode testar a aplicação em funcionamento no seguinte link:
 
-[LINK DO DEPLOY]
+https://agenda.camiloruas.dev/
 
-> **Aviso:** Devido a custos de hospedagem, a aplicação pode não estar disponível por tempo indeterminado. Caso o link esteja fora do ar, você pode seguir as instruções abaixo para rodar o projeto localmente.
+> **Aviso:** Este aplicativo está hospedado temporariamente com créditos bônus do Google Cloud. Por isso, ele pode ficar indisponível a qualquer momento.Caso o link esteja fora do ar, siga as instruções abaixo para executar o projeto localmente.
 
 ## Funcionalidades
 
